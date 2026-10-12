@@ -1,0 +1,8 @@
+<Solution>
+  <Project Path="NewsFeeder.Api/NewsFeeder.Api.csproj" />
+  <Project Path="NewsFeeder.Application/NewsFeeder.Application.csproj" />
+  <Project Path="NewsFeeder.Domain/NewsFeeder.Domain.csproj" />
+  <Project Path="NewsFeeder.Infrastructure/NewsFeeder.Infrastructure.csproj" />
+  <Project Path="NewsFeeder.Tests.Integration/NewsFeeder.Tests.Integration.csproj" />
+  <Project Path="NewsFeeder.Tests.Unit/NewsFeeder.Tests.Unit.csproj" />
+</Solution>

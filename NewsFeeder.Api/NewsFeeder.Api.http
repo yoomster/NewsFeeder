@@ -1,0 +1,6 @@
+@NewsFeeder.Api_HostAddress = http://localhost:5051
+
+GET {{NewsFeeder.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
