@@ -1,24 +1,31 @@
 ﻿namespace NewsFeeder.Domain;
 
-public class NewsArticle
+public record NewsArticle
 {
-    private string story;
-    private DateOnly publishedDate;
-
-    public NewsArticle(string title, string author, string header, string story, DateOnly publishedDate)
+    public NewsArticle(int id, string title, string author, string header, string storyContent, DateTime publishedDate)
     {
+        if (string.IsNullOrEmpty(title))
+        {
+            throw new ArgumentException("Empty Title is not allowed", nameof(title));
+        }
+
+        if (publishedDate > DateTime.UtcNow)
+        {
+            throw new ArgumentException("Publicatiedatum kan niet in de toekomst liggen.", nameof(publishedDate));
+        }
+
+        Id = id;
         Title = title;
         Author = author;
         Header = header;
-        this.story = story;
-        this.publishedDate = publishedDate;
+        StoryContent = storyContent;
+        PublishedDate = publishedDate;
     }
 
-    public int Id { get; set; }
-    public string Title { get; set; }
-    public string Author { get; set; }
-    public string Header { get; set; }
-    public string StoryContent { get; set; }
-    public DateTime PublishedDate { get; set; }
-
+    public int Id { get; init; }
+    public string Title { get; init; }
+    public string Author { get; init; }
+    public string Header { get; init; }
+    public string StoryContent { get; init; }
+    public DateTime PublishedDate { get; init; }
 }
